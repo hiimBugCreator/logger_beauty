@@ -1,39 +1,71 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# logger_beauty
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+**Bring clarity and visual appeal to your logs with logger_beauty!**
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+This Dart library empowers you with:
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+- **Color-coded logging:** Visually distinguish messages based on their importance with vibrant
+  colors.
+- **Timestamps:** Easily track the sequence of events with clear timestamps.
+- **Customizable levels:** Categorize messages using different log levels (debug, info, warning,
+  error, unknown).
+- **Optional colors:** Highlight specific messages with custom colors for added emphasis.
+- **Debug mode awareness:** Logs messages only in debug mode, keeping production environments clean.
 
-## Features
+**Key features:**
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Simple API for easy integration into your projects.
+- Works seamlessly with Flutter's `debugPrint` function.
+- Supports custom formatting for tailored logging experiences.
+- Ideal for debugging, monitoring, and understanding application behavior.
 
-## Getting started
+**Installation:**
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add the library to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  logger_beauty: ^1.0.0
+  ```
+
+Then run:
+
+```shell
+$ flutter pub get
+```
+
+Import the library in your Dart code:
+
+```dart
+import 'package:logger_beauty/logger_beauty.dart';
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+import 'package:logger_beauty/logger_beauty.dart';
+
+logDebug('This is a debug message');
+logDebug('This is an info message', level: LogLevel.info);
+logDebug('This is a warning message', level: LogLevel.warning, color: LogColor.yellow);
+
 ```
 
-## Additional information
+**Customization:**
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+- Define your own log levels using the LogLevel enum.
+- Create custom color themes for unique visual styles.
+
+**Integration with Dio:**
+
+```dart
+import 'package:logger_beauty/dio_logger_interceptor.dart';
+
+final dio = Dio();
+dio.interceptors.add(DioLoggerInterceptor());
+
+```
+
+Issues and Feedback
+Please file issues or provide feedback on
+our [GitHub repository](https://github.com/hiimBugCreator/logger_beauty/).

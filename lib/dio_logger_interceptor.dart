@@ -5,7 +5,12 @@ import 'package:dio/dio.dart';
 import 'log_level.dart';
 import 'logger_beauty.dart';
 
-class LoggerInterceptor extends Interceptor {
+/// Interceptor that logs HTTP requests and responses with formatting for readability.
+///
+/// Designed specifically for the *[Dio]* library, this interceptor enhances debugging and
+/// monitoring by providing clear and structured logging of network interactions.
+class DioLoggerInterceptor extends Interceptor {
+  // Constant for visually separating log entries.
   final _lineChar =
       '_______________________________________________________________________';
 
@@ -14,9 +19,11 @@ class LoggerInterceptor extends Interceptor {
     final options = err.requestOptions;
     final requestPath = '${options.baseUrl}${options.path}';
 
-    // Log the error request and error message
+    // Log error details:
+    // - Request method and path
     logDebug('onError: ${options.method} request => $requestPath',
         level: LogLevel.error);
+    // - Error type and message
     logDebug('onError: ${err.error}, Message: ${err.message}',
         level: LogLevel.debug);
     logDebug(_lineChar);
@@ -50,7 +57,7 @@ class LoggerInterceptor extends Interceptor {
     return super.onResponse(response, handler);
   }
 
-  // Helper method to convert data to pretty JSON format
+  // Helper method to convert data to pretty JSON format for enhanced readability.
   String _prettyJsonEncode(dynamic data) {
     try {
       const encoder = JsonEncoder.withIndent('  ');
