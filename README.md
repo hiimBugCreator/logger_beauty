@@ -66,6 +66,8 @@ dio.interceptors.add(DioLoggerInterceptor());
 
 ```
 
+For more examples, check out the [example](https://github.com/hiimBugCreator/logger_beauty/tree/main/example) directory.
+
 Issues and Feedback
 Please file issues or provide feedback on
 our [GitHub repository](https://github.com/hiimBugCreator/logger_beauty/).

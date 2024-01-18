@@ -14,6 +14,9 @@ class DioLoggerInterceptor extends Interceptor {
   final _lineChar =
       '_______________________________________________________________________';
 
+  /// Handles errors during HTTP requests.
+  ///
+  /// Logs error details including request method, path, error type, and message.
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     final options = err.requestOptions;
@@ -31,6 +34,9 @@ class DioLoggerInterceptor extends Interceptor {
     return super.onError(err, handler);
   }
 
+  /// Handles HTTP requests before they are sent.
+  ///
+  /// Logs request details including method, path, headers, and data.
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final requestPath = '${options.baseUrl}${options.path}';
@@ -47,6 +53,9 @@ class DioLoggerInterceptor extends Interceptor {
     return super.onRequest(options, handler);
   }
 
+  /// Handles HTTP responses before they are processed.
+  ///
+  /// Logs response details including status code and formatted response data.
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     logDebug(
