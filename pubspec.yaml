@@ -1,5 +1,5 @@
 name: logger_beauty
-description: A Flutter package help your debug screen more beautiful.
+description: Transform your debug screens into beautiful, informative workspaces with this Flutter package. Supports DioInterceptor for effortless network request tracking.
 version: 1.0.1
 homepage: https://github.com/hiimBugCreator/logger_beauty/
 
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dio: ^5.4.0
+  dio:
 
 dev_dependencies:
   flutter_test:
