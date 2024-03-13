@@ -32,6 +32,10 @@ class _MyHomePageState extends State<MyHomePage> {
     logDebug('This is an info message', level: LogLevel.info);
     logDebug('This is a warning message',
         level: LogLevel.warning, color: LogColor.yellow);
+
+    logDebug('This is new update',
+        level: LogLevel.warning, color: LogColor.yellow);
+    logDebug(0);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Full Calendar Example'),

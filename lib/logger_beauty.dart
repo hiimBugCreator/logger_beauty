@@ -17,7 +17,7 @@ import 'log_level.dart';
 /// - Color-coded output based on log level for visual distinction.
 /// - Optional custom color for specific highlighting.
 /// - Only logs messages in debug mode to avoid cluttering production environments.
-void logDebug(String message,
+void logDebug(Object? message,
     {LogLevel level = LogLevel.debug, String? color}) {
   // Retrieve the current time for timestamping in hours, minutes, and seconds
   final now = DateTime.now();
